@@ -2,45 +2,31 @@ using MammaMia.Models;
 
 namespace MammaMia.Services;
 
-public static class PizzaService
+public class PizzaService : IFoodService<Pizza>
 {
-    static List<Pizza> Pizzas { get; }
-    static int nextId = 3;
-
-    static PizzaService()
+    public IEnumerable<Pizza> GetAll()
     {
-        Pizzas = new List<Pizza> {
-            new Pizza { Id = 1, Name = "Margarita", IsGlutenFree = true},
-            new Pizza { Id = 2, Name = "Pepperoni", IsGlutenFree = false}
-        };
+        throw new NotImplementedException();
     }
 
-    public static List<Pizza> GetPizzas() => Pizzas;
-
-    public static Pizza? GetPizza(int id) => Pizzas.FirstOrDefault(p => p.Id == id);
-
-    public static void AddPizza(Pizza pizza)
+    public Pizza? GetById(int id)
     {
-        pizza.Id = nextId++;
-        Pizzas.Add(pizza);
+        throw new NotImplementedException();
     }
 
-    public static void RemovePizza(int id)
-    {
-        var pizza = GetPizza(id);
-
-        if (pizza is null) return;
-
-        Pizzas.Remove(pizza);
+    public Pizza? Create(Pizza pizza){
+        throw new NotImplementedException();
     }
 
-    public static void UpdatePizza(Pizza pizza)
-    {
-        var index = Pizzas.FindIndex(p => p.Id == pizza.Id);
-
-        if (index == -1) return;
-
-        Pizzas[index] = pizza;
+    public void AddToppping(int PizzaId, int ToppingId){
+        throw new NotImplementedException();
     }
-    
+
+    public void UpdateSauce(int PizzaId, int SauceId){
+        throw new NotImplementedException();
+    }
+
+    public void DeleteById(int PizzaId){
+        throw new NotImplementedException();
+    }
 }
