@@ -12,6 +12,13 @@ public class PizzaController : ControllerBase
     public PizzaController(PizzaService service)
     {
         _service = service;
+
+        //Ejemplo de uso de interfaces y patron factory 
+        //IFoodServiceFactory foodServiceFactory = new FoodServiceFactory();
+        // IFoodService<Cake> cakeService = foodServiceFactory.CreateService<Cake>();
+        // IFoodService<Pizza> pizzaService = foodServiceFactory.CreateService<Pizza>();
+        // cakeService.GetAll();
+        // pizzaService.GetById(2);
     }
 
     [HttpGet]
