@@ -1,3 +1,4 @@
+using MammaMia.Data;
 using MammaMia.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Añadir el PizzaContext
+builder.Services.AddSqlite<PizzaContext>("Data Source=MammaMia.db");
 builder.Services.AddScoped<PizzaService>();
 
 var app = builder.Build();
