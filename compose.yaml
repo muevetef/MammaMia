@@ -18,11 +18,11 @@ services:
     image: postgres:15-alpine
     container_name: mamma_postgre_container
     environment:
-      POSTRGRES_DB: pizzaDB
-      POSTRGRES_USER: postgre
-      POSTRGRES_PASSWORD: postgre
+      POSTGRES_DB: pizzaDB
+      POSTGRES_USER: postgre
+      POSTGRES_PASSWORD: postgre
     volumes:
-      - mama_postgre_data:/var/lib/postgresql/data
+      - mamma_postgre_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
@@ -41,7 +41,7 @@ services:
       - pizza-net
 
 volumes:
-  mama_postgre_data:
+  mamma_postgre_data:
 
 networks:
   pizza-net:
