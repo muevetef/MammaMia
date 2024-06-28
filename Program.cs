@@ -1,5 +1,6 @@
 using MammaMia.Data;
 using MammaMia.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Añadir el PizzaContext
-builder.Services.AddSqlite<PizzaContext>("Data Source=MammaMia.db");
+// builder.Services.AddSqlite<PizzaContext>("Data Source=MammaMia.db");
+var conn = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<PizzaContext>(options => options.UseNpgsql(conn));
+
 builder.Services.AddScoped<PizzaService>();
 
 var app = builder.Build();
